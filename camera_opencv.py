@@ -1,23 +1,27 @@
 import cv2
 
-cap = cv2.VideoCapture(0)
+camera_index = 0
+cap = cv2.VideoCapture(camera_index)
 
 if not cap.isOpened():
     print("Error: Unable to open the camera")
-    exit(1)
+else:
+    while True:
+        # Capture frame-by-frame
+        ret, frame = cap.read()
 
-while True:
-    ret, frame = cap.read()
+        # Check if the frame is valid
+        if not ret:
+            print("Error: Unable to read a frame from the camera")
+            break
 
-    if not ret:
-        print("Error: Unable to read a frame from the camera")
-        break
+        # Display the frame
+        cv2.imshow('Camera Feed', frame)
 
-    cv2.imshow("Frame", frame)
+        # Exit the loop when 'q' key is pressed
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
 
-    # Break the loop if the 'q' key is pressed
-    if cv2.waitKey(1) & 0xFF == ord("q"):
-        break
-
-cap.release()
-cv2.destroyAllWindows()
+    # Release the camera and close the window
+    cap.release()
+    cv2.destroyAllWindows()
