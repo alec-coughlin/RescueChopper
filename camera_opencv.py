@@ -1,27 +1,18 @@
 import cv2
 
-camera_index = 0
-cap = cv2.VideoCapture(camera_index)
+# Load the captured image
+image = cv2.imread('test_image.jpg')
 
-if not cap.isOpened():
-    print("Error: Unable to open the camera")
+if image is None:
+    print("Error: Unable to load the image")
 else:
-    while True:
-        # Capture frame-by-frame
-        ret, frame = cap.read()
+    # Perform any desired processing here
+    # For example, you can convert the image to grayscale:
+    # gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-        # Check if the frame is valid
-        if not ret:
-            print("Error: Unable to read a frame from the camera")
-            break
+    # Display the image
+    cv2.imshow('Captured Image', image)
 
-        # Display the frame
-        cv2.imshow('Camera Feed', frame)
-
-        # Exit the loop when 'q' key is pressed
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-    # Release the camera and close the window
-    cap.release()
+    # Wait for a keypress and close the window
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
