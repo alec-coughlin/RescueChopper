@@ -2,12 +2,10 @@ import cv2
 
 # Define GStreamer pipeline
 gst_pipeline = (
-    "nvarguscamerasrc sensor_id=0 ! "
-    "video/x-raw(memory:NVMM), width=(int)640, height=(int)480, framerate=(fraction)30/1, format=(string)NV12 ! "
-    "nvvidconv flip-method=0 ! "
-    "video/x-raw, width=(int)640, height=(int)480, format=(string)BGRx ! "
+    "v4l2src device=/dev/video0 ! "
+    "video/x-raw, width=640, height=480, framerate=30/1, format=UYVY ! "
     "videoconvert ! "
-    "video/x-raw, format=(string)BGR ! appsink"
+    "video/x-raw, format=BGR ! appsink"
 )
 
 # Initialize video capture with GStreamer pipeline
@@ -23,9 +21,4 @@ while True:
     # Show the video
     cv2.imshow("Camera Test", frame)
 
-    # Exit the loop when 'q' is pressed
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-cap.release()
-cv2.destroyAllWindows()
+    # Exit the loop when 'q'
