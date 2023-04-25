@@ -2,8 +2,8 @@ import cv2
 
 # Define GStreamer pipeline
 gst_pipeline = (
-    "nvarguscamerasrc ! "
-    "video/x-raw(memory:NVMM), width=(int)640, height=(int)480, format=(string)NV12, framerate=(fraction)30/1 ! "
+    "nvarguscamerasrc sensor_id=0 ! "
+    "video/x-raw(memory:NVMM), width=(int)640, height=(int)480, framerate=(fraction)30/1, format=(string)NV12 ! "
     "nvvidconv flip-method=0 ! "
     "video/x-raw, width=(int)640, height=(int)480, format=(string)BGRx ! "
     "videoconvert ! "
