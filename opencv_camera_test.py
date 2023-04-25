@@ -1,7 +1,17 @@
 import cv2
 
-# Initialize video capture
-cap = cv2.VideoCapture(0)
+# Define GStreamer pipeline
+gst_pipeline = (
+    "nvarguscamerasrc ! "
+    "video/x-raw(memory:NVMM), width=(int)640, height=(int)480, format=(string)NV12, framerate=(fraction)30/1 ! "
+    "nvvidconv flip-method=0 ! "
+    "video/x-raw, width=(int)640, height=(int)480, format=(string)BGRx ! "
+    "videoconvert ! "
+    "video/x-raw, format=(string)BGR ! appsink"
+)
+
+# Initialize video capture with GStreamer pipeline
+cap = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
 
 while True:
     ret, frame = cap.read()
