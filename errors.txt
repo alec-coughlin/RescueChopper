@@ -1,7 +1,91 @@
-[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src0 reported: Failed to allocate required memory.
+(python3:5741): GStreamer-CRITICAL **: 13:50:49.593: 
+Trying to dispose element pipeline0, but it is in PAUSED instead of the NULL state.
+You need to explicitly set elements to the NULL state before
+dropping the final reference, to allow them to clean up.
+This problem may also be caused by a refcounting bug in the
+application or some element.
+
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+
+(python3:5741): GStreamer-CRITICAL **: 13:50:49.593: 
+Trying to dispose element videoconvert0, but it is in PLAYING instead of the NULL state.
+You need to explicitly set elements to the NULL state before
+dropping the final reference, to allow them to clean up.
+This problem may also be caused by a refcounting bug in the
+application or some element.
+
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+
+(python3:5741): GStreamer-CRITICAL **: 13:50:49.593: 
+Trying to dispose element appsink0, but it is in READY instead of the NULL state.
+You need to explicitly set elements to the NULL state before
+dropping the final reference, to allow them to clean up.
+This problem may also be caused by a refcounting bug in the
+application or some element.
+
+
+(python3:5741): GStreamer-CRITICAL **: 13:50:49.596: gst_element_post_message: assertion 'GST_IS_ELEMENT (element)' failed
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src1 reported: Device '/dev/video1' is not a capture device.
 [ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
 [ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
-^CTraceback (most recent call last):
-  File "/home/rescuechopper/Documents/repos/RescueChopper/RescueChopper/HOG_human_detection_test.py", line 32, in <module>
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-KeyboardInterrupt
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src2 reported: Cannot identify device '/dev/video2'.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src3 reported: Cannot identify device '/dev/video3'.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src4 reported: Cannot identify device '/dev/video4'.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src5 reported: Cannot identify device '/dev/video5'.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src6 reported: Cannot identify device '/dev/video6'.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src7 reported: Cannot identify device '/dev/video7'.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src8 reported: Cannot identify device '/dev/video8'.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src9 reported: Cannot identify device '/dev/video9'.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src10 reported: Device '/dev/video10' is not a capture device.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src11 reported: Device '/dev/video11' is not a capture device.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src12 reported: Device '/dev/video12' is not a capture device.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src13 reported: Device '/dev/video13' is not a capture device.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+^C
+(python3:5741): GStreamer-CRITICAL **: 13:50:54.791: 
+Trying to dispose element pipeline14, but it is in PAUSED instead of the NULL state.
+You need to explicitly set elements to the NULL state before
+dropping the final reference, to allow them to clean up.
+This problem may also be caused by a refcounting bug in the
+application or some element.
+
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+
+(python3:5741): GStreamer-CRITICAL **: 13:50:54.792: 
+Trying to dispose element videoconvert14, but it is in PLAYING instead of the NULL state.
+You need to explicitly set elements to the NULL state before
+dropping the final reference, to allow them to clean up.
+This problem may also be caused by a refcounting bug in the
+application or some element.
+
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+
+(python3:5741): GStreamer-CRITICAL **: 13:50:54.792: 
+Trying to dispose element appsink14, but it is in READY instead of the NULL state.
+You need to explicitly set elements to the NULL state before
+dropping the final reference, to allow them to clean up.
+This problem may also be caused by a refcounting bug in the
+application or some element.
