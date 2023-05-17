@@ -1,1 +1,1 @@
-vid = cv2.VideoCapture('v4l2src device=/dev/video0 ! image/jpeg, width=3840, height=2160 ! jpegdec ! videoconvert ! video/x-raw, format=I420 ! appsink', cv2.CAP_GSTREAMER)
+vid = cv2.VideoCapture('v4l2src device=/dev/video0 ! videoscale ! video/x-raw,width=640,height=480 ! videoconvert ! appsink', cv2.CAP_GSTREAMER)
