@@ -1,7 +1,7 @@
 import cv2
 
 # Use video0 as the video source
-cap = cv2.VideoCapture("v4l2src device=/dev/video0 ! videoconvert ! appsink", cv2.CAP_GSTREAMER)
+cap = cv2.VideoCapture("v4l2src device=/dev/video1 ! videoconvert ! appsink", cv2.CAP_GSTREAMER)
 
 while True:
     # Capture frame-by-frame
