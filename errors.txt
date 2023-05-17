@@ -1,0 +1,7 @@
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (1824) handleMessage OpenCV | GStreamer warning: Embedded video playback halted; module v4l2src0 reported: Failed to allocate required memory.
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (914) open OpenCV | GStreamer warning: unable to start pipeline
+[ WARN:0] global ../modules/videoio/src/cap_gstreamer.cpp (501) isPipelinePlaying OpenCV | GStreamer warning: GStreamer: pipeline have not been created
+^CTraceback (most recent call last):
+  File "/home/rescuechopper/Documents/repos/RescueChopper/RescueChopper/HOG_human_detection_test.py", line 32, in <module>
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+KeyboardInterrupt
