@@ -1,33 +1,25 @@
-# wget https://github.com/opencv/opencv/raw/master/data/haarcascades/haarcascade_frontalface_default.xml
+#!/usr/bin/python3
+
 import cv2
 
-# Load the Haar Cascade Classifier for face detection
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+from picamera2 import Picamera2
 
-# Load the captured image
-image = cv2.imread('test_image.jpg')
+# Grab images as numpy arrays and leave everything else to OpenCV.
 
-if image is None:
-    print("Error: Unable to load the image")
-else:
-    # Convert the image to grayscale
-    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+face_detector = cv2.CascadeClassifier("/usr/share/opencv4/haarcascades/haarcascade_frontalface_default.xml")
+cv2.startWindowThread()
 
-    # Detect faces in the grayscale image
-    faces = face_cascade.detectMultiScale(gray_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+picam2 = Picamera2()
+picam2.configure(picam2.create_preview_configuration(main={"format": 'XRGB8888', "size": (640, 480)}))
+picam2.start()
 
-    if len(faces) > 0:
-        print("Face detected")
-    else:
-        print("No face detected")
+while True:
+    im = picam2.capture_array()
 
-    # Draw rectangles around the detected faces
+    grey = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
+    faces = face_detector.detectMultiScale(grey, 1.1, 5)
+
     for (x, y, w, h) in faces:
-        cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        cv2.rectangle(im, (x, y), (x + w, y + h), (0, 255, 0))
 
-    # Display the image with detected faces
-    cv2.imshow('Captured Image', image)
-
-    # Wait for a keypress and close the window
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    cv2.imshow("Camera", im)
