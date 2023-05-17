@@ -1,3 +1,1 @@
-               total        used        free      shared  buff/cache   available
-Mem:           3.7Gi       784Mi       1.5Gi       489Mi       1.5Gi       2.4Gi
-Swap:           99Mi          0B        99Mi
+crw-rw----+ 1 root video 81, 14 May 17 13:59 /dev/video0
