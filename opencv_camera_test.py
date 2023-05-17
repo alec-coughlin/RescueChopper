@@ -3,7 +3,8 @@ import cv2
 
 
 # define a video capture object
-vid = cv2.VideoCapture(0)
+vid = cv2.VideoCapture('v4l2src device=/dev/video0 ! videoscale ! video/x-raw,width=640,height=480 ! videoconvert ! appsink', cv2.CAP_GSTREAMER)
+
 
 while(True):
 	

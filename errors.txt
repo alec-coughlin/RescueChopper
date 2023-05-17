@@ -1,1 +1,8 @@
-vid = cv2.VideoCapture('v4l2src device=/dev/video0 ! videoscale ! video/x-raw,width=640,height=480 ! videoconvert ! appsink', cv2.CAP_GSTREAMER)
+[0:03:47.164623749] [1902]  INFO Camera camera_manager.cpp:299 libcamera v0.0.4+22-923f5d70
+[0:03:47.218008725] [1944]  INFO RPI raspberrypi.cpp:1476 Registered camera /base/soc/i2c0mux/i2c@1/imx477@1a to Unicam device /dev/media2 and ISP device /dev/media3
+[0:03:47.243201002] [1902]  INFO Camera camera.cpp:1028 configuring streams: (0) 640x480-XRGB8888
+[0:03:47.244551544] [1944]  INFO RPI raspberrypi.cpp:851 Sensor: /base/soc/i2c0mux/i2c@1/imx477@1a - Selected sensor format: 2028x1520-SBGGR12_1X12 - Selected unicam format: 2028x1520-pBCC
+Traceback (most recent call last):
+  File "/home/rescuechopper/Documents/repos/RescueChopper/RescueChopper/camera_opencv.py", line 20, in <module>
+    faces = face_detector.detectMultiScale(grey, 1.1, 5)
+cv2.error: OpenCV(4.5.1) ../modules/objdetect/src/cascadedetect.cpp:1689: error: (-215:Assertion failed) !empty() in function 'detectMultiScale'
