@@ -1,1 +1,1 @@
-crw-rw----+ 1 root video 81, 14 May 17 13:59 /dev/video0
+cap = cv2.VideoCapture(f'v4l2src device=/dev/video0 io-mode=2 ! image/jpeg, width=(int)3840, height=(int)2160 !  nvjpegdec ! video/x-raw, format=I420 ! appsink', cv2.CAP_GSTREAMER)
