@@ -5,31 +5,47 @@ import numpy as np
 import cv2
 from ultralytics.yolo.utils.plotting import Annotator
 
+# Create a new YOLO model from scratch
+#model = YOLO('yolov8n.yaml')
+
 # Load a pretrained YOLO model (recommended for training)
 model = YOLO('yolov8n.pt')
 
-# Get the class index for 'person'
-person_idx = model.names.index('person')
+# Train the model using the 'coco128.yaml' dataset for 3 epochs
+#model.train(data='coco128.yaml', epochs=2)
+
+# Evaluate the model's performance on the validation set
+#results = model.val()
+
+# Perform object detection on an image using the model
+#results = model('https://ultralytics.com/images/bus.jpg')
+
+# Export the model to ONNX format
+#success = model.export(format='onnx')
 
 cap = cv2.VideoCapture(0)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+# cap.set(cv2.CAP_PROP_FPS, 10)
+
 while cap.isOpened():
     ret, frame = cap.read()
-    
-    # Resize the frame for faster processing
-    frame = cv2.resize(frame, (416, 416))  # Resize to whatever size fits your need
     
     # Make detections 
     results = model(frame)
 
-    annotator = Annotator(frame)
-    
-    # Get only person detections
-    person_detections = [r for r in results if r.cls == person_idx]
+    for r in results:
+        
+        annotator = Annotator(frame)
+        
+        boxes = r.filter(class_names=['person']).boxes
 
-    for pd in person_detections:
-        b = pd.boxes[0].xyxy[0]  # get box coordinates in (top, left, bottom, right) format
-        annotator.box_label(b, model.names[int(pd.cls)])
-
+        for box in boxes:
+            
+            b = box.xyxy[0]  # get box coordinates in (top, left, bottom, right) format
+            c = box.cls
+            annotator.box_label(b, model.names[int(c)])
+          
     frame = annotator.result()  
     
     cv2.imshow('YOLO', frame)
