@@ -1,37 +1,23 @@
 import cv2
-import imutils
 
-# load the serialized HOG + Linear SVM model
-# this model was trained on the INRIA person dataset and can detect people in images
-hog = cv2.HOGDescriptor()
-hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
+from picamera2 import Picamera2
 
-# open the video stream from the Arducam
-cap = cv2.VideoCapture(0)
+# Grab images as numpy arrays and leave everything else to OpenCV.
 
-# continuously process frames from the video stream
+face_detector = cv2.CascadeClassifier("/usr/share/opencv4/haarcascades/haarcascade_frontalface_default.xml")
+cv2.startWindowThread()
+
+picam2 = Picamera2()
+picam2.configure(picam2.create_preview_configuration(main={"format": 'XRGB8888', "size": (640, 480)}))
+picam2.start()
+
 while True:
-    # read a frame from the video stream
-    r, frame = cap.read()
-    if r:
-        # resize the frame to reduce processing time
-        frame = imutils.resize(frame, width=min(400, frame.shape[1]))
-        
-        # detect people in the frame
-        # this returns a list of bounding boxes for detected people
-        (boxes, weights) = hog.detectMultiScale(frame, winStride=(4, 4), padding=(8, 8), scale=1.05)
-        
-        # draw the bounding boxes
-        for (x, y, w, h) in boxes:
-            cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
-        
-        # show the output frame
-        cv2.imshow("output", frame)
-    
-    # if the 'q' key is pressed, break from the loop
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+    im = picam2.capture_array()
 
-# clean up
-cv2.destroyAllWindows()
-cap.release()
+    grey = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
+    faces = face_detector.detectMultiScale(grey, 1.1, 5)
+
+    for (x, y, w, h) in faces:
+        cv2.rectangle(im, (x, y), (x + w, y + h), (0, 255, 0))
+
+    cv2.imshow("Camera", im)
